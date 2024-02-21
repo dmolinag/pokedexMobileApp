@@ -8,10 +8,10 @@ export const Header = () => {
   };
   return (
     <View style={styles.container}>
-      <Image
-        source={require("./../../../assets/logo-pokemon.png")}
-        style={styles.logo}
-      />
+        <Image
+          source={require("./../../../assets/logo-pokemon.png")}
+          style={styles.logo}
+        />
       <Button onPress={handleSubmit}>
         <Icon name="user" size={30} color="#900" />
       </Button>
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     width: "100%",
-    height: '25%',
+    height: "19%",
     justifyContent: "space-between",
     alignItems: "center",
   },
   logo: {
-    width: "50%",
-    height: "80%",
+    width: '50%',
+    height: '100%'
   },
 });

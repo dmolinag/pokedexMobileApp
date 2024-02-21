@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
 });
 
 const getBadgeImage = (pokemonType: string) => {
-  console.log(pokemonType);
   switch (pokemonType) {
     case "bug":
       return <Bug width={15} height={15} />;

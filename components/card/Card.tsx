@@ -8,15 +8,14 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ bgdColor, children }) => {
   return (
-    <View style={[styles.card, { backgroundColor: bgdColor }]}>{children}</View>
+    <View style={[styles.card, { backgroundColor: bgdColor, borderColor: bgdColor }]}>{children}</View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderStyle: "solid",
-    borderColor: "#000",
     borderRadius: 10,
     padding: 5,
   },
