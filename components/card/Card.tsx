@@ -1,14 +1,26 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 interface CardProps {
   bgdColor?: string;
+  borderColor: string;
   children: React.ReactElement | undefined;
 }
 
-const Card: React.FC<CardProps> = ({ bgdColor, children }) => {
+export const Card: React.FC<CardProps> = ({
+  bgdColor,
+  borderColor,
+  children,
+}) => {
   return (
-    <View style={[styles.card, { backgroundColor: bgdColor, borderColor: bgdColor }]}>{children}</View>
+    <View
+      style={[
+        styles.card,
+        { backgroundColor: bgdColor, borderColor: borderColor },
+      ]}
+    >
+      {children}
+    </View>
   );
 };
 
@@ -20,5 +32,3 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 });
-
-export default Card;

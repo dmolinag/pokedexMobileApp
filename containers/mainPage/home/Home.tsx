@@ -1,9 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
-import { PokemonObj } from "../../utils";
-import { useGetPokemon } from "../../customHooks/useGetPokemon";
-import { getPokemonColor } from "../../utils/pokemonFunctions";
-import Card from "../../components/card/Card";
-import CardContent from "../../components/cardContent/CardContent";
+import { PokemonObj } from "../../../utils";
+import { useGetPokemon } from "../../../customHooks/useGetPokemon";
+import { getPokemonColor } from "../../../utils/pokemonFunctions";
+import { Card, CardContent } from "../../../components";
 
 export const INITIAL_POKEMON: PokemonObj = {
   id: 0,
@@ -21,7 +20,10 @@ export const Home: React.FC = () => {
 
   return (
     <View style={styles.home}>
-      <Card bgdColor={getPokemonColor(randomPokemon).color}>
+      <Card
+        bgdColor={getPokemonColor(randomPokemon).color}
+        borderColor={getPokemonColor(randomPokemon).borderColor}
+      >
         <View style={styles.cardContainer}>
           <Text style={styles.title}>Your today's random Pokemon is...</Text>
           <CardContent type="horizontal" pokemon={randomPokemon} />
@@ -42,8 +44,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
     fontSize: 26,
-    fontWeight: "700",
-    /*text-shadow: 2px 2px 4px $black;*/
+    fontWeight: "bold",
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 4,
   },
   cardContainer: {
     height: 350,

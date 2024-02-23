@@ -1,23 +1,20 @@
-// CustomButton.tsx
-import React from 'react';
-import {Pressable, Text, StyleSheet} from 'react-native';
+import React from "react";
+import { Pressable, StyleSheet } from "react-native";
 
 interface ButtonProps {
   onPress: () => void;
   children?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  onPress,
-  children,
-}) => {
+export const Button: React.FC<ButtonProps> = ({ onPress, children }) => {
   return (
     <Pressable
-      style={({pressed}) => [
+      style={({ pressed }) => [
         styles.button,
-        {backgroundColor: pressed ? 'red': 'grey'},
+        { backgroundColor: pressed ? "red" : "grey" },
       ]}
-      onPress={onPress}>
+      onPress={onPress}
+    >
       {children}
     </Pressable>
   );
@@ -25,19 +22,11 @@ const Button: React.FC<ButtonProps> = ({
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'yellow',
-	borderRadius: 8,
-	color: '#0000',
+    display: 'flex',
+    borderRadius: 8,
     height: 50,
-    width: 50, 
-    alignItems: 'center',
-    padding: 5
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    textAlign: 'center',
+    alignItems: "center",
+    padding: 5,
+    justifyContent: 'center'
   },
 });
-
-export default Button;

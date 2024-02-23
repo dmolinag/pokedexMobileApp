@@ -1,7 +1,8 @@
 import { pokemonTypes } from "./constants";
 import { PokemonObj, PokemonType } from "./types/pokemonTypes";
 
-export const getPokemonColor = (pokemon: PokemonObj | null): PokemonType => {
+export const getPokemonColor = (pokemon: PokemonObj): PokemonType => {
+
   return pokemonTypes.filter(
     (type) => pokemon && pokemon.types[0].type.name.indexOf(type.name) !== -1
   )[0];

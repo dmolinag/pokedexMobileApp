@@ -1,17 +1,26 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import Button from "../../buttons/Button";
+import { StyleSheet, View, useColorScheme } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { Button } from "../../buttons";
+import PokemonLogo from "../../../assets/logo-pokemon.svg";
+import PokemonLogoBlack from "../../../assets/logo-pokemon-black.svg";
 
 export const Header = () => {
+  const isDarkMode = useColorScheme() === "dark";
+
+  const pokemonLogo = () => {
+    if (isDarkMode) {
+      return <PokemonLogo style={styles.logo} />;
+    }
+
+    return <PokemonLogoBlack style={styles.logo} />;
+  };
+
   const handleSubmit = () => {
     return;
   };
   return (
     <View style={styles.container}>
-        <Image
-          source={require("./../../../assets/logo-pokemon.png")}
-          style={styles.logo}
-        />
+      {pokemonLogo()}
       <Button onPress={handleSubmit}>
         <Icon name="user" size={30} color="#900" />
       </Button>
@@ -21,16 +30,15 @@ export const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     padding: 20,
     display: "flex",
     flexDirection: "row",
-    width: "100%",
-    height: "19%",
     justifyContent: "space-between",
     alignItems: "center",
   },
   logo: {
-    width: '50%',
-    height: '100%'
+    width: "60%",
+    height: "100%",
   },
 });

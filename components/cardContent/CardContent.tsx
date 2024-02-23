@@ -16,7 +16,7 @@ interface CardProps {
 
 type CardType = "horizontal" | "vertical";
 
-const CardContent: React.FC<CardProps> = ({ pokemon }) => {
+export const CardContent: React.FC<CardProps> = ({ pokemon }) => {
   const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
   return (
     <View style={styles.container}>
@@ -115,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CardContent;
+

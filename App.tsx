@@ -3,13 +3,16 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  StyleSheet,
+  View,
   useColorScheme,
 } from "react-native";
 
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
-import { Home } from "./containers";
+import { Home, PokemonList } from "./containers";
 import { Layout } from "./components/layout/layout";
+import { Footer, Header } from "./components";
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
@@ -19,21 +22,35 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={[backgroundStyle, { flex: 1 }]}>
+    <SafeAreaView
+      style={[backgroundStyle, { flex: 1 }]}
+    >
       <StatusBar
         barStyle={isDarkMode ? "light-content" : "dark-content"}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={[backgroundStyle, { flex: 1 }]}
+        style={[backgroundStyle, { flex: 1}]}
       >
-        <Layout>
+        <View style={styles.container}>
+          <Header />
           <Home />
-        </Layout>
+          <PokemonList />
+          <Footer />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    flex: 1
+  },
+});
 
 export default App;

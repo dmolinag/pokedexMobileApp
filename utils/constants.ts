@@ -1,73 +1,87 @@
 import { PokemonType } from "./types/pokemonTypes";
 
-
 export const POKEMONS_PER_PAGE = 9;
 export const MAX_POKEMON = 150;
 
 export const pokemonTypes: PokemonType[] = [
-	{ name: 'bug', color: '#7bcf00' },
-	{ name: 'dark', color: '#5a566a' },
-	{
-		name: 'dragon',
-		color: '#0076ff',
-	},
-	{
-		name: 'electric',
-		color: '#ffde00',
-	},
-	{
-		name: 'fairy',
-		color: '#ff76ff',
-	},
-	{
-		name: 'fighting',
-		color: '#ff215b',
-	},
-	{
-		name: 'fire',
-		color: '#ff9900',
-	},
-	{
-		name: 'flying',
-		color: '#89bdff',
-	},
-	{
-		name: 'ghost',
-		color: '#4e6aff',
-	},
-	{
-		name: 'grass',
-		color: '#1cd80e',
-	},
-	{
-		name: 'ground',
-		color: '#ff6b0d',
-	},
-	{
-		name: 'ice',
-		color: '#2ee4c6',
-	},
-	{
-		name: 'normal',
-		color: '#9fa39d',
-	},
-	{
-		name: 'poison',
-		color: '#f149ff',
-	},
-	{
-		name: 'psychic',
-		color: '#ff6c64',
-	},
-	{ name: 'rock', color: '#d8bc5a' },
-	{
-		name: 'steel',
-		color: '#23a1bd',
-	},
-	{
-		name: 'water',
-		color: '#14a8ff',
-	},
+  { name: "bug", color: "#7bcf00", borderColor: "#67a700" },
+  { name: "dark", color: "#5a566a", borderColor: "462e6a" },
+  {
+    name: "dragon",
+    color: "#0076ff",
+    borderColor: "#004eff",
+  },
+  {
+    name: "electric",
+    color: "#ffde00",
+    borderColor: "#ebb600",
+  },
+  {
+    name: "fairy",
+    color: "#ff76ff",
+    borderColor: "#eb4eff",
+  },
+  {
+    name: "fighting",
+    color: "#ff215b",
+    borderColor: "#cd0056",
+  },
+  {
+    name: "fire",
+    color: "#ff9900",
+    borderColor: "#e17100",
+  },
+  {
+    name: "flying",
+    color: "#89bdff",
+    borderColor: "#cd4900",
+  },
+  {
+    name: "ghost",
+    color: "#4e6aff",
+    borderColor: "#3a42ff",
+  },
+  {
+    name: "grass",
+    color: "#1cd80e",
+    borderColor: "#08b00e",
+  },
+  {
+    name: "ground",
+    color: "#ff6b0d",
+    borderColor: "#eb6b0d",
+  },
+  {
+    name: "ice",
+    color: "#2ee4c6",
+    borderColor: "#1abcc6",
+  },
+  {
+    name: "normal",
+    color: "#9fa39d",
+    borderColor: "#8b7b9d",
+  },
+  {
+    name: "poison",
+    color: "#f149ff",
+    borderColor: "#dd21ff",
+  },
+  {
+    name: "psychic",
+    color: "#eb4464",
+    borderColor: "#c4945a",
+  },
+  { name: "rock", color: "#d8bc5a", borderColor: "#c4945a" },
+  {
+    name: "steel",
+    color: "#23a1bd",
+    borderColor: "#0f79bd",
+  },
+  {
+    name: "water",
+    color: "#14a8ff",
+    borderColor: "#0080ff",
+  },
 ];
 
 // export const pokemonTypesAgainst: PokemonTypesAgainstType[] = [
