@@ -1,17 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
-import { PokemonObj } from "../../../utils";
-import { useGetPokemon } from "../../../customHooks/useGetPokemon";
-import { getPokemonColor } from "../../../utils/pokemonFunctions";
 import { Card, CardContent } from "../../../components";
-
-export const INITIAL_POKEMON: PokemonObj = {
-  id: 0,
-  name: "Pokemon",
-  types: [{ type: { name: "bug" } }],
-  weight: 1,
-  height: 1,
-  stats: [{ base_stat: 1, stat: { name: "test" } }],
-};
+import { useGetPokemon } from "../../../customHooks";
+import { PokemonObj, getPokemonColor } from "../../../utils";
 
 export const Home: React.FC = () => {
   const MAX_POKEMON = 150;

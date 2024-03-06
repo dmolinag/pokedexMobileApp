@@ -1,23 +1,32 @@
-import React from "react";
-import { InputComp } from "../..";
-import styles from "../searchBar.module.scss";
+import { StyleSheet, Text, View } from "react-native";
+import { InputComp } from "../../input";
 import { useDebounce } from "../../../customHooks";
 
 export const SearchByName = () => {
- const { queryByName, queryLoading} = useDebounce()
+  const { queryByName, queryLoading } = useDebounce();
 
   const handleSearch = (value: string) => {
     queryByName(value);
   };
 
   return (
-    <section className={styles.searchBar}>
-      <div className={styles.searchBar__searchByName}>
-        <h2 className={styles.searchBar__searchByName__title}>
-          Search by name
-        </h2>
-        <InputComp onChange={handleSearch} loading={queryLoading} />
-      </div>
-    </section>
+    <View style={styles.container}>
+      <Text style={styles.title}>Search by name</Text>
+      <InputComp onChange={handleSearch} isLoading={queryLoading} />
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  title: {
+    color: "#fff",
+    fontSize: 26,
+    fontWeight: "bold",
+    margin: 1,
+  },
+});

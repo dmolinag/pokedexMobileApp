@@ -1,6 +1,4 @@
-import React from "react";
-import { useColorScheme } from "react-native";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, useColorScheme } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export const Footer = () => {

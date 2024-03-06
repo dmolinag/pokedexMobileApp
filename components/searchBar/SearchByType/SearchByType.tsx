@@ -1,17 +1,14 @@
 import React from "react";
-import { Button, PokemonBadgeType } from "../..";
-import { POKEMONS_PER_PAGE, pokemonTypes } from "../../../utils/constants";
+import { POKEMONS_PER_PAGE, pokemonTypes } from "../../../utils";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { useListPokemon } from "../../../customHooks/useListPokemon";
-import { useListPokemonByType } from "../../../customHooks/useListPokemonByType";
-import { usePokemonsListContext } from "../../../utils/pokemonsListContext";
+import { useListPokemon, useListPokemonByType } from "../../../customHooks";
+import { Button, PokemonBadgeType } from "../..";
 
 interface SearchBarProp {
   setPage: (page: number) => void;
 }
 
 export const SearchByType = ({ setPage }: SearchBarProp) => {
-
   const [selectedType, setSelectedType] = React.useState<string>("");
   const { queryPokemonsByType } = useListPokemonByType();
   const { queryPokemons } = useListPokemon();
@@ -25,7 +22,6 @@ export const SearchByType = ({ setPage }: SearchBarProp) => {
       queryPokemons(0, true);
     }
   };
-
 
   return (
     <View style={styles.container}>

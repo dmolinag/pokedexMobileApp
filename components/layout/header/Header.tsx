@@ -1,8 +1,8 @@
 import { StyleSheet, View, useColorScheme } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Button } from "../../buttons";
 import PokemonLogo from "../../../assets/logo-pokemon.svg";
 import PokemonLogoBlack from "../../../assets/logo-pokemon-black.svg";
+import { Button } from "../../buttons";
 
 export const Header = () => {
   const isDarkMode = useColorScheme() === "dark";

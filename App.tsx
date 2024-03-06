@@ -7,13 +7,11 @@ import {
   View,
   useColorScheme,
 } from "react-native";
-
 import { Colors } from "react-native/Libraries/NewAppScreen";
-
 import { Home, PokemonList } from "./containers";
-import { Layout } from "./components/layout/layout";
 import { Footer, Header } from "./components";
-import { PokemonListProvider } from "./utils/pokemonsListContext";
+import Toast from "react-native-toast-message";
+import { PokemonListProvider } from "./utils";
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
@@ -23,14 +21,14 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={[backgroundStyle, { flex: 1 }]}>
+    <SafeAreaView style={[backgroundStyle]}>
       <StatusBar
         barStyle={isDarkMode ? "light-content" : "dark-content"}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={[backgroundStyle, { flex: 1 }]}
+        style={[backgroundStyle]}
       >
         <PokemonListProvider>
           <View style={styles.container}>
@@ -41,6 +39,7 @@ function App(): React.JSX.Element {
           </View>
         </PokemonListProvider>
       </ScrollView>
+      <Toast />
     </SafeAreaView>
   );
 }

@@ -1,5 +1,4 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-
 import Bug from "../../assets/pokemonTypes/bug.svg";
 import Dark from "../../assets/pokemonTypes/dark.svg";
 import Dragon from "../../assets/pokemonTypes/dragon.svg";
@@ -18,13 +17,13 @@ import Psychic from "../../assets/pokemonTypes/psychic.svg";
 import Rock from "../../assets/pokemonTypes/rock.svg";
 import Steel from "../../assets/pokemonTypes/steel.svg";
 import Water from "../../assets/pokemonTypes/water.svg";
+import { pokemonTypes } from "../../utils";
 
-import { pokemonTypes } from "../../utils/constants";
 
 type PokemonTypeProps = {
   type: string;
   isButton?: boolean;
-  onPress: () => void;
+  onPress?: () => void;
 };
 
 export const PokemonBadgeType = ({

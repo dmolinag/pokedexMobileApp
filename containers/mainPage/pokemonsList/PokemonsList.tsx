@@ -1,16 +1,8 @@
 import { useState } from "react";
-import { Card, Button } from "../../../components";
-import { useListPokemon } from "../../../customHooks/useListPokemon";
-import { PokemonObj } from "../../../utils";
-import { POKEMONS_PER_PAGE } from "../../../utils/constants";
-import {
-  formatPokemonId,
-  getPokemonColor,
-} from "../../../utils/pokemonFunctions";
-import { StyleSheet, View, Text, Image } from "react-native";
-import { SearchBar } from "../../../components/searchBar/SearchBar";
-import { usePokemonsListContext } from "../../../utils/pokemonsListContext";
-import { useListPokemonByType } from "../../../customHooks/useListPokemonByType";
+import { StyleSheet, View, Text, Image, Platform } from "react-native";
+import { useListPokemon, useListPokemonByType } from "../../../customHooks";
+import { POKEMONS_PER_PAGE, PokemonObj, formatPokemonId, getPokemonColor, usePokemonsListContext } from "../../../utils";
+import { Button, Card, SearchBar } from "../../../components";
 
 export const PokemonList = () => {
   const { queryPokemons } = useListPokemon();
@@ -61,7 +53,7 @@ export const PokemonList = () => {
                   </View>
 
                   <View style={styles.imageContainer}>
-                    <Image style={styles.image} source={{ uri: imgUrl }} />
+                    <Image style={styles.image} source={{ uri: imgUrl }} height={200} width={200}/>
                   </View>
                 </View>
               </Card>
@@ -88,7 +80,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     gap: 20,
-    width: "100%",
+    width: "100%"
   },
   pokemon: {
     display: "flex",
@@ -110,12 +102,20 @@ const styles = StyleSheet.create({
     textTransform: "capitalize",
   },
   imageContainer: {
-    height: 200,
     width: "100%",
     alignItems: "center",
   },
   image: {
-    width: "70%",
-    height: "100%",
-  },
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
+  }
 });

@@ -1,8 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
-import { PokemonObj } from "../../utils";
-import { formatPokemonId } from "../../utils/pokemonFunctions";
-import { PokemonBadgeType } from "../pokemonBadgeType/PokemonBadgeType";
+import { View, StyleSheet, Image, Text, Platform } from "react-native";
+import { PokemonObj, formatPokemonId } from "../../utils";
+import { PokemonBadgeType } from "../pokemonBadgeType";
 
 interface CardProps {
   type: CardType;
@@ -84,6 +83,17 @@ const styles = StyleSheet.create({
     height: "60%",
     margin: -20,
     padding: 0,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
   number: {
     color: "white",
@@ -103,16 +113,14 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
   },
-  value: { 
-    color: "#fff", 
+  value: {
+    color: "#fff",
     fontWeight: "bold",
     textShadowColor: "rgba(0, 0, 0, 0.75)",
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 4,
   },
   text: {
-    color: "#fff", 
+    color: "#fff",
   },
 });
-
-

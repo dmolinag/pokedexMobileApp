@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text } from "react-native";
 
 interface ButtonProps {
   onPress: () => void;
-  children: string;
+  children: React.ReactNode;
 }
 
 export const Button: React.FC<ButtonProps> = ({ onPress, children }) => {
