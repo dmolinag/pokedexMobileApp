@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import Bug from "../../assets/pokemonTypes/bug.svg";
 import Dark from "../../assets/pokemonTypes/dark.svg";
@@ -23,13 +23,31 @@ import { pokemonTypes } from "../../utils/constants";
 
 type PokemonTypeProps = {
   type: string;
+  isButton?: boolean;
+  onPress: () => void;
 };
 
-export const PokemonBadgeType = ({ type }: PokemonTypeProps) => {
+export const PokemonBadgeType = ({
+  type,
+  isButton,
+  onPress,
+}: PokemonTypeProps) => {
   const [{ name, color }] = pokemonTypes.filter((item) => item.name === type);
 
+  if (isButton) {
+    return (
+      <Pressable
+        style={[styles.container, { backgroundColor: color }]}
+        onPress={onPress}
+      >
+        {getBadgeImage(name)}
+        <Text style={styles.type}>{name}</Text>
+      </Pressable>
+    );
+  }
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { borderColor: "#fff" }]}>
       {getBadgeImage(name)}
       <Text style={styles.type}>{name}</Text>
     </View>
@@ -43,7 +61,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: "#fff",
     borderRadius: 10,
     padding: 5,
     gap: 5,

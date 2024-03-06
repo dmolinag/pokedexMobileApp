@@ -8,10 +8,15 @@ import {
   getPokemonColor,
 } from "../../../utils/pokemonFunctions";
 import { StyleSheet, View, Text, Image } from "react-native";
+import { SearchBar } from "../../../components/searchBar/SearchBar";
+import { usePokemonsListContext } from "../../../utils/pokemonsListContext";
+import { useListPokemonByType } from "../../../customHooks/useListPokemonByType";
 
 export const PokemonList = () => {
-  const { queryPokemons, pokemonsList } = useListPokemon();
-  // const { queryPokemonsByType } = useListPokemonByType();
+  const { queryPokemons } = useListPokemon();
+  const { pokemonList, filtered, pokemonType } = usePokemonsListContext();
+
+  const { queryPokemonsByType } = useListPokemonByType();
 
   // const [isPokemonDetailsModalOpen, setIsPokemonDetailsModalOpen] =
   // 	useState<boolean>(false);
@@ -26,18 +31,19 @@ export const PokemonList = () => {
   const handleLoadMore = async () => {
     const nextPage = page + 1;
 
-    // if (!filtered) {
+    if (!filtered) {
     queryPokemons(page);
-    // } else {
-    // 	queryPokemonsByType(pokemonType, POKEMONS_PER_PAGE * nextPage);
-    // }
+    } else {
+    	queryPokemonsByType(pokemonType, POKEMONS_PER_PAGE * nextPage);
+    }
     setPage(nextPage);
   };
 
   return (
     <View style={styles.container}>
+      <SearchBar setPage={setPage} />
       <View style={styles.pokemons}>
-        {pokemonsList.map((pokemon: PokemonObj) => {
+        {pokemonList.map((pokemon: PokemonObj) => {
           const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
 
           return (
@@ -64,9 +70,7 @@ export const PokemonList = () => {
         })}
       </View>
 
-      <Button onPress={handleLoadMore}>
-        <Text style={styles.buttonText}>Load more</Text>
-      </Button>
+      <Button onPress={handleLoadMore}>Load more</Button>
     </View>
   );
 };
@@ -77,8 +81,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     flex: 1,
     width: "100%",
-    padding: 40,
-    gap: 10,
+    padding: 20,
+    gap: 50,
   },
   pokemons: {
     display: "flex",
@@ -113,9 +117,5 @@ const styles = StyleSheet.create({
   image: {
     width: "70%",
     height: "100%",
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "bold",
   },
 });

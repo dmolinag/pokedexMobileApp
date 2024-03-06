@@ -1,9 +1,9 @@
 import React from "react";
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 
 interface ButtonProps {
   onPress: () => void;
-  children?: React.ReactNode;
+  children: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({ onPress, children }) => {
@@ -15,7 +15,7 @@ export const Button: React.FC<ButtonProps> = ({ onPress, children }) => {
       ]}
       onPress={onPress}
     >
-      {children}
+      <Text style={styles.text}>{children}</Text>
     </Pressable>
   );
 };
@@ -24,9 +24,11 @@ const styles = StyleSheet.create({
   button: {
     display: 'flex',
     borderRadius: 8,
-    height: 50,
     alignItems: "center",
     padding: 5,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
+  text: {
+    color: "#fff",
+  }
 });

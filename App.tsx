@@ -13,6 +13,7 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 import { Home, PokemonList } from "./containers";
 import { Layout } from "./components/layout/layout";
 import { Footer, Header } from "./components";
+import { PokemonListProvider } from "./utils/pokemonsListContext";
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
@@ -22,23 +23,23 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView
-      style={[backgroundStyle, { flex: 1 }]}
-    >
+    <SafeAreaView style={[backgroundStyle, { flex: 1 }]}>
       <StatusBar
         barStyle={isDarkMode ? "light-content" : "dark-content"}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={[backgroundStyle, { flex: 1}]}
+        style={[backgroundStyle, { flex: 1 }]}
       >
-        <View style={styles.container}>
-          <Header />
-          <Home />
-          <PokemonList />
-          <Footer />
-        </View>
+        <PokemonListProvider>
+          <View style={styles.container}>
+            <Header />
+            <Home />
+            <PokemonList />
+            <Footer />
+          </View>
+        </PokemonListProvider>
       </ScrollView>
     </SafeAreaView>
   );
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    flex: 1
+    flex: 1,
   },
 });
 
