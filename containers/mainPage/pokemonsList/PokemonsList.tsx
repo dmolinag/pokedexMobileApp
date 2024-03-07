@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     position: "absolute",
     right: 0,
-    gap: 5
+    gap: 5,
   },
   icon: {
     display: "flex",

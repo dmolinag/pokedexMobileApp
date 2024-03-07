@@ -1,6 +1,6 @@
 import React from "react";
 import { POKEMONS_PER_PAGE, pokemonTypes } from "../../../utils";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View, useColorScheme } from "react-native";
 import { useListPokemon, useListPokemonByType } from "../../../customHooks";
 import { Button, PokemonBadgeType } from "../..";
 
@@ -12,6 +12,14 @@ export const SearchByType = ({ setPage }: SearchBarProp) => {
   const [selectedType, setSelectedType] = React.useState<string>("");
   const { queryPokemonsByType } = useListPokemonByType();
   const { queryPokemons } = useListPokemon();
+
+  const isDarkMode = useColorScheme() === "dark";
+
+  let textColor = "#444";
+
+  if (isDarkMode) {
+    textColor = "#fff";
+  }
 
   const onSearchByType = async (typeName: any) => {
     setSelectedType(typeName);
@@ -25,7 +33,7 @@ export const SearchByType = ({ setPage }: SearchBarProp) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Search by type</Text>
+      <Text style={[styles.title, { color: textColor }]}>Search by type</Text>
 
       <View style={{ display: "flex", flexDirection: "row" }}>
         <FlatList

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, useColorScheme } from "react-native";
 import { InputComp } from "../../input";
 import { useDebounce } from "../../../customHooks";
 
@@ -9,9 +9,16 @@ export const SearchByName = () => {
     queryByName(value);
   };
 
+  const isDarkMode = useColorScheme() === "dark";
+  let textColor = "#444";
+
+  if (isDarkMode) {
+    textColor = "#fff";
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Search by name</Text>
+      <Text style={[styles.title, { color: textColor }]}>Search by name</Text>
       <InputComp onChange={handleSearch} isLoading={queryLoading} />
     </View>
   );
