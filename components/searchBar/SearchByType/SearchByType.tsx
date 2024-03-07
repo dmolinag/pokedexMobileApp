@@ -62,12 +62,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     margin: 1,
   },
-  containerList: {
-    display: "flex",
-    flexDirection: "row",
-    position: "relative",
-    gap: 10,
-  },
   item: {
     marginRight: 5,
   },

@@ -22,13 +22,13 @@ export const Button: React.FC<ButtonProps> = ({ onPress, children }) => {
 
 const styles = StyleSheet.create({
   button: {
-    display: 'flex',
+    display: "flex",
     borderRadius: 8,
     alignItems: "center",
     padding: 5,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   text: {
     color: "#fff",
-  }
+  },
 });

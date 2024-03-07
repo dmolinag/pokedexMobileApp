@@ -1,10 +1,9 @@
-import React from "react";
 import { View, StyleSheet } from "react-native";
 
 interface CardProps {
   bgdColor?: string;
   borderColor: string;
-  children: React.ReactElement | undefined;
+  children: React.ReactElement;
 }
 
 export const Card: React.FC<CardProps> = ({

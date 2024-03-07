@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Card, CardContent } from "../../../components";
 import { useGetPokemon } from "../../../customHooks";
-import { PokemonObj, getPokemonColor } from "../../../utils";
+import { getPokemonColor } from "../../../utils";
 
 export const Home: React.FC = () => {
   const MAX_POKEMON = 150;

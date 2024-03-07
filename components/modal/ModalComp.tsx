@@ -38,16 +38,4 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  input: {
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    padding: 10,
-    width: "60%",
-    borderRadius: 10,
-    color: "black",
-  },
-  loading: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
 });

@@ -21,7 +21,7 @@ export const InputComp = ({ onChange, isLoading }: InputCompProps) => {
         value={value}
         onChangeText={(text) => handleOnChange(text)}
         placeholder="Search your Pokemon"
-        placeholderTextColor='grey'
+        placeholderTextColor="grey"
       />
 
       {isLoading && (
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "60%",
     borderRadius: 10,
-    color: 'black'
+    color: "black",
   },
   loading: {
     justifyContent: "center",

@@ -14,7 +14,7 @@ export const StatsModal = ({
   openModal,
 }: StatsModalProps) => {
   return (
-    <View>
+    <View style={styles.container}>
       <ModalComp isVisible={isModalOpen}>
         <View style={styles.content}>
           <View>
@@ -45,6 +45,9 @@ export const StatsModal = ({
 };
 
 const styles = StyleSheet.create({
+  container: {
+    margin: -20,
+  },
   content: {
     display: "flex",
     flexDirection: "column",
