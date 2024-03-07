@@ -1,9 +1,9 @@
 import { Toast } from "react-native-toast-message/lib/src/Toast";
 import { fetchPokemon } from "./fetchPokemon";
 
-type Props = {
+interface Props {
   pokemon: { name: string };
-};
+}
 
 export const fetchPokemonByType = async (type: string, pokemonAmount = 9) => {
   const URL = `https://pokeapi.co/api/v2/type/${type}`;

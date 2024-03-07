@@ -1,7 +1,10 @@
 export * from './buttons/Button'
 export * from './card/Card'
-export * from './cardContent/CardContent'
+export * from './cardContent'
+export * from './input'
 export * from './layout'
+export * from './meter'
+export * from './modal/ModalComp'
 export * from './pokemonBadgeType'
 export * from './searchBar'
 

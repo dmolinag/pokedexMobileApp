@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Platform,
-  Pressable,
-} from "react-native";
+import { StyleSheet, View, Text, Image, Platform } from "react-native";
 import {
   INITIAL_POKEMON,
   useListPokemon,
@@ -21,7 +14,7 @@ import {
 } from "../../../utils";
 import { Button, Card, SearchBar } from "../../../components";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { ModalComp } from "../../../components/modal";
+import { StatsModal } from "./StatsModal";
 
 export const PokemonList = () => {
   const { pokemonList, filtered, pokemonType } = usePokemonsListContext();
@@ -30,8 +23,6 @@ export const PokemonList = () => {
 
   const [isPokemoninfoModalOpen, setIsPokemonInfoModalOpen] =
     useState<boolean>(false);
-  // const [isPokemonTypeModalOpen, setIsPokemonTypeModalOpen] =
-  // 	useState<boolean>(false);
   const [selectedPokemon, setSelectedPokemon] =
     useState<PokemonObj>(INITIAL_POKEMON);
   // const [favPokemons, setFavPokemons] = useState<number[]>(getFavoritePokemons);
@@ -56,42 +47,11 @@ export const PokemonList = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <ModalComp isVisible={isPokemoninfoModalOpen}>
-          <View style={styles.content}>
-            <View>
-              <Text style={styles.number}>{selectedPokemon.name}</Text>
-            </View>
-            <View style={styles.stats}>
-              {selectedPokemon.stats.map((item) => {
-                const pokemonStat =
-                  item.stat.name.charAt(0).toUpperCase() +
-                  item.stat.name.slice(1);
-
-                return (
-                  <View style={styles.meterContainer} key={item.stat.name}>
-                    <Text style={styles.text}>{pokemonStat}</Text>
-                    <Text style={styles.text}>{item.base_stat}</Text>
-                    {/* <Meter value={item.base_stat} aria-label={item.stat.name}>
-                      {({ percentage }) => (
-                        <div className="bar">
-                          <div
-                            className={`fill ${styles.meter}`}
-                            style={{ width: percentage + "%" }}
-                          />
-                        </div>
-                      )}
-                    </Meter> */}
-                  </View>
-                );
-              })}
-            </View>
-            <Button onPress={() => setIsPokemonInfoModalOpen(false)}>
-              <Text>close</Text>
-            </Button>
-          </View>
-        </ModalComp>
-      </View>
+      <StatsModal
+        isModalOpen={isPokemoninfoModalOpen}
+        openModal={setIsPokemonInfoModalOpen}
+        pokemon={selectedPokemon}
+      />
 
       <SearchBar setPage={setPage} />
       <View style={styles.pokemonsList}>
@@ -166,21 +126,6 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 20,
     gap: 50,
-  },
-  content: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  stats: {},
-  meterContainer: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 5,
-    width: "100%",
-    justifyContent: 'space-between'
-  },
-  text: {
-    color: "#fff",
   },
   pokemonsList: {
     display: "flex",

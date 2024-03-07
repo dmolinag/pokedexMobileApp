@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import { Modal } from "react-native";
 
-export interface ModalCompProps {
+interface ModalCompProps {
   children: React.ReactElement;
   isVisible?: boolean;
 }

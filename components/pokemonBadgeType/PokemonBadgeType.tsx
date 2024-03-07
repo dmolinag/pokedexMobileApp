@@ -19,12 +19,11 @@ import Steel from "../../assets/pokemonTypes/steel.svg";
 import Water from "../../assets/pokemonTypes/water.svg";
 import { pokemonTypes } from "../../utils";
 
-
-type PokemonTypeProps = {
+interface PokemonTypeProps {
   type: string;
   isButton?: boolean;
   onPress?: () => void;
-};
+}
 
 export const PokemonBadgeType = ({
   type,

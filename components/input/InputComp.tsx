@@ -1,7 +1,7 @@
 import { ActivityIndicator, StyleSheet, TextInput, View } from "react-native";
 import { useState } from "react";
 
-export interface InputCompProps {
+interface InputCompProps {
   onChange: (e: string) => void;
   isLoading?: boolean;
 }
