@@ -75,21 +75,21 @@ export const PokemonList = () => {
                         <Icon
                           style={styles.icon}
                           name="info-circle"
-                          size={30}
-                          color="grey"
+                          size={25}
+                          color="#edebeb"
                           onPress={() => handleOpenModal(pokemon)}
                         />
                         <Icon
                           style={styles.icon}
                           name="heart"
-                          size={30}
-                          color="#900"
+                          size={25}
+                          color="#c73866"
                         />
                         <Icon
                           style={styles.icon}
                           name="heart-o"
-                          size={30}
-                          color="#900"
+                          size={25}
+                          color="#c73866"
                         />
                       </View>
                     </View>
@@ -162,14 +162,9 @@ const styles = StyleSheet.create({
   iconsContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-    alignSelf: "flex-end",
-    alignContent: "flex-end",
     position: "absolute",
     right: 0,
-    borderRightColor: "black",
-    borderWidth: 1,
+    gap: 5
   },
   icon: {
     display: "flex",

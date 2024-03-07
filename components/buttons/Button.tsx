@@ -11,7 +11,7 @@ export const Button: React.FC<ButtonProps> = ({ onPress, children }) => {
     <Pressable
       style={({ pressed }) => [
         styles.button,
-        { backgroundColor: pressed ? "red" : "grey" },
+        { backgroundColor: pressed ? "#ddd7d3" : "#fff" },
       ]}
       onPress={onPress}
     >
@@ -27,8 +27,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 5,
     justifyContent: "center",
+    minWidth: 50,
+    minHeight: 50,
+    borderWidth: 2,
+    borderColor: '#ddd7d3'
   },
   text: {
-    color: "#fff",
+    color: "grey",
   },
 });
