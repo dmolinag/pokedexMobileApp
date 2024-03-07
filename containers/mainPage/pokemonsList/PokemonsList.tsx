@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { StyleSheet, View, Text, Image, Platform } from "react-native";
 import { useListPokemon, useListPokemonByType } from "../../../customHooks";
-import { POKEMONS_PER_PAGE, PokemonObj, formatPokemonId, getPokemonColor, usePokemonsListContext } from "../../../utils";
+import {
+  POKEMONS_PER_PAGE,
+  PokemonObj,
+  formatPokemonId,
+  getPokemonColor,
+  usePokemonsListContext,
+} from "../../../utils";
 import { Button, Card, SearchBar } from "../../../components";
 
 export const PokemonList = () => {
@@ -24,9 +30,9 @@ export const PokemonList = () => {
     const nextPage = page + 1;
 
     if (!filtered) {
-    queryPokemons(page);
+      queryPokemons(page);
     } else {
-    	queryPokemonsByType(pokemonType, POKEMONS_PER_PAGE * nextPage);
+      queryPokemonsByType(pokemonType, POKEMONS_PER_PAGE * nextPage);
     }
     setPage(nextPage);
   };
@@ -53,7 +59,12 @@ export const PokemonList = () => {
                   </View>
 
                   <View style={styles.imageContainer}>
-                    <Image style={styles.image} source={{ uri: imgUrl }} height={200} width={200}/>
+                    <Image
+                      style={styles.image}
+                      source={{ uri: imgUrl }}
+                      height={200}
+                      width={200}
+                    />
                   </View>
                 </View>
               </Card>
@@ -80,7 +91,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     gap: 20,
-    width: "100%"
+    width: "100%",
   },
   pokemon: {
     display: "flex",
@@ -117,5 +128,5 @@ const styles = StyleSheet.create({
         elevation: 5,
       },
     }),
-  }
+  },
 });

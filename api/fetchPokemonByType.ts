@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const fetchPokemonByType = async (type: string, pokemonAmount = 9) => {
-  const URL = `https://pokeapi.co/api/v2/tyspe/${type}`;
+  const URL = `https://pokeapi.co/api/v2/type/${type}`;
   try {
     const response = await fetch(URL);
     const data = await response.json();

@@ -22,7 +22,7 @@ export const Header = () => {
     <View style={styles.container}>
       {pokemonLogo()}
       <Button onPress={handleSubmit}>
-        <Icon name="user" size={30} color="#900" />
+        <Icon name="rocket" size={30} color="#900" />
       </Button>
     </View>
   );
